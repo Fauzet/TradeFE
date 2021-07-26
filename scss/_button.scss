@@ -1,0 +1,12 @@
+[cta-primary] {
+	padding: $padding $padding * 2;
+	border-radius: 3px;
+	text-decoration: none;
+	background: var(--primary, #000000);
+	color: white;
+
+	&:hover {
+		text-decoration: none;
+		filter: brightness(.85);
+	}
+}

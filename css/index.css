@@ -1,0 +1,222 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;1,400;1,600&display=swap");
+:root {
+  --primary: linear-gradient(90deg, #424242, #101010);
+  --secondary: #707070;
+  --tersier: #eeeeee;
+  --shadow: #424242;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--secondary, #555555);
+  background: var(--primary, #000000);
+  font-family: "Source Sans Pro", sans-serif;
+  overflow-x: hidden;
+}
+body > * {
+  padding: 30px;
+}
+
+a {
+  color: var(--secondary, #444444);
+  text-decoration: underline dotted;
+}
+a[white] {
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+flex {
+  display: flex;
+}
+flex[column] {
+  flex-direction: column;
+}
+flex[same-width] > * {
+  flex: 1;
+}
+flex[center] {
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+flex[cards] {
+  width: 50%;
+  margin: 0px auto;
+  align-items: center;
+  justify-content: center;
+}
+flex[cards] > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 3px;
+  border: 1px solid var(--secondary);
+  box-shadow: 0px 2px 2px var(--shadow, #000000);
+}
+flex[cards] > div[primary] {
+  border: 1px solid var(--primary);
+}
+flex[cards] > div > * {
+  padding: 10px 0;
+}
+@media screen and (max-width: 660px) {
+  flex[cards] {
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+  flex[cards] > div {
+    flex: none;
+  }
+}
+flex[width="10%"] {
+  width: 10%;
+}
+flex[width="20%"] {
+  width: 20%;
+}
+flex[width="30%"] {
+  width: 30%;
+}
+flex[width="40%"] {
+  width: 40%;
+}
+flex[width="50%"] {
+  width: 50%;
+}
+flex[width="60%"] {
+  width: 60%;
+}
+flex[width="70%"] {
+  width: 70%;
+}
+flex[width="80%"] {
+  width: 80%;
+}
+flex[width="90%"] {
+  width: 90%;
+}
+flex[width="100%"] {
+  width: 100%;
+}
+flex[wrap] {
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 660px) {
+  flex > * {
+    width: 100%;
+  }
+}
+
+section[hero] {
+  background: var(--primary-gradient, var(--primary, #000000));
+  height: 90vh;
+}
+section[hero] > header:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+section[hero] > header:first-of-type > b:first-of-type {
+  font-size: 20px;
+}
+section[hero] > header:first-of-type a {
+  text-decoration: none;
+  margin: 0px 5px;
+}
+section[hero] > h1 {
+  display: flex;
+  height: 100%;
+  font-size: 40px;
+  color: white;
+  margin: 0;
+}
+section[hero] > h1[center] {
+  align-items: center;
+  justify-content: center;
+}
+section[curve] {
+  padding-top: 60px;
+}
+section[curve][top] {
+  border-top-left-radius: 80% 30%;
+  border-top-right-radius: 80% 30%;
+}
+@media screen and (max-width: 660px) {
+  section[curve][top] {
+    border-top-left-radius: 30% 20%;
+    border-top-right-radius: 30% 20%;
+  }
+}
+section[curve][bottom] {
+  border-bottom-left-radius: 80% 30%;
+  border-bottom-right-radius: 80% 30%;
+}
+@media screen and (max-width: 660px) {
+  section[curve][bottom] {
+    border-bottom-left-radius: 30% 20%;
+    border-bottom-right-radius: 30% 20%;
+  }
+}
+section[white] {
+  background: white;
+}
+
+h1[center], h2[center], h3[center], h4[center], h5[center], h6[center], p[center], b[center] {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header, #000000);
+}
+
+blockquote {
+  padding: 20px;
+  border-radius: 5px;
+  background: var(--tersier);
+  margin: 5px;
+}
+blockquote > p {
+  margin-top: 0px;
+  color: var(--secondary);
+}
+blockquote > p::before {
+  content: "“";
+}
+blockquote > p::after {
+  content: "“";
+}
+
+*[white-color] {
+  color: white !important;
+}
+*[ta-right] {
+  text-align: right !important;
+}
+*[ta-left] {
+  text-align: left !important;
+}
+
+[cta-primary] {
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  background: var(--primary, #000000);
+  color: white;
+}
+[cta-primary]:hover {
+  text-decoration: none;
+  filter: brightness(0.85);
+}
