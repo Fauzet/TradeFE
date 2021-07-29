@@ -23,16 +23,14 @@ blockquote {
 	}
 }
 
-* {
-	&[white-color] {
-		color: white !important;
-	}
+[white-color] {
+	color: white !important;
+}
 
-	&[ta-right] {
-		text-align: right !important;
-	}
+[ta-right] {
+	text-align: right !important;
+}
 
-	&[ta-left] {
-		text-align: left !important;
-	}
+[ta-left] {
+	text-align: left !important;
 }

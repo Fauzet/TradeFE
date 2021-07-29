@@ -30,7 +30,8 @@ flex {
 			box-shadow: 0px 2px 2px var(--shadow, #000000);
 
 			&[primary] {
-				border: 1px solid var(--primary);
+				background: var(--primary);
+				color: var(--tersier);
 			}
 
 			> * {
@@ -46,14 +47,6 @@ flex {
 		}
 	}
 
-	@for $i from 10 through 100 {
-		@if $i % 10 == 0 {
-			&[width="#{$i}%"] {
-				width: percentage($i / 100);
-			}
-		}
-	}
-
 	&[wrap] {
 		flex-wrap: wrap;
 	}
@@ -64,3 +57,13 @@ flex {
 	        }
 	}
 }
+
+@for $i from 10 through 100 {
+	@if $i % 10 == 0 {
+		[width="#{$i}%"] {
+			width: percentage($i / 100) !important;
+		}
+	}
+}
+
+[no-margin] { margin: 0 !important; }

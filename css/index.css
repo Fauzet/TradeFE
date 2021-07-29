@@ -67,7 +67,8 @@ flex[cards] > div {
   box-shadow: 0px 2px 2px var(--shadow, #000000);
 }
 flex[cards] > div[primary] {
-  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--tersier);
 }
 flex[cards] > div > * {
   padding: 10px 0;
@@ -81,36 +82,6 @@ flex[cards] > div > * {
     flex: none;
   }
 }
-flex[width="10%"] {
-  width: 10%;
-}
-flex[width="20%"] {
-  width: 20%;
-}
-flex[width="30%"] {
-  width: 30%;
-}
-flex[width="40%"] {
-  width: 40%;
-}
-flex[width="50%"] {
-  width: 50%;
-}
-flex[width="60%"] {
-  width: 60%;
-}
-flex[width="70%"] {
-  width: 70%;
-}
-flex[width="80%"] {
-  width: 80%;
-}
-flex[width="90%"] {
-  width: 90%;
-}
-flex[width="100%"] {
-  width: 100%;
-}
 flex[wrap] {
   flex-wrap: wrap;
 }
@@ -118,6 +89,50 @@ flex[wrap] {
   flex > * {
     width: 100%;
   }
+}
+
+[width="10%"] {
+  width: 10% !important;
+}
+
+[width="20%"] {
+  width: 20% !important;
+}
+
+[width="30%"] {
+  width: 30% !important;
+}
+
+[width="40%"] {
+  width: 40% !important;
+}
+
+[width="50%"] {
+  width: 50% !important;
+}
+
+[width="60%"] {
+  width: 60% !important;
+}
+
+[width="70%"] {
+  width: 70% !important;
+}
+
+[width="80%"] {
+  width: 80% !important;
+}
+
+[width="90%"] {
+  width: 90% !important;
+}
+
+[width="100%"] {
+  width: 100% !important;
+}
+
+[no-margin] {
+  margin: 0 !important;
 }
 
 section[hero] {
@@ -147,6 +162,9 @@ section[hero] > h1[center] {
   align-items: center;
   justify-content: center;
 }
+section[glowy] {
+  box-shadow: 0px 0px 5px white;
+}
 section[curve] {
   padding-top: 60px;
 }
@@ -156,8 +174,8 @@ section[curve][top] {
 }
 @media screen and (max-width: 660px) {
   section[curve][top] {
-    border-top-left-radius: 30% 20%;
-    border-top-right-radius: 30% 20%;
+    border-top-left-radius: 30% 5%;
+    border-top-right-radius: 30% 5%;
   }
 }
 section[curve][bottom] {
@@ -166,8 +184,8 @@ section[curve][bottom] {
 }
 @media screen and (max-width: 660px) {
   section[curve][bottom] {
-    border-bottom-left-radius: 30% 20%;
-    border-bottom-right-radius: 30% 20%;
+    border-bottom-left-radius: 30% 5%;
+    border-bottom-right-radius: 30% 5%;
   }
 }
 section[white] {
@@ -199,14 +217,22 @@ blockquote > p::after {
   content: "“";
 }
 
-*[white-color] {
+[white-color] {
   color: white !important;
 }
-*[ta-right] {
+
+[ta-right] {
   text-align: right !important;
 }
-*[ta-left] {
+
+[ta-left] {
   text-align: left !important;
+}
+
+button {
+  border: 0;
+  font-family: "Inter", "Source Sans Pro", sans-serif;
+  cursor: pointer;
 }
 
 [cta-primary] {
@@ -215,8 +241,50 @@ blockquote > p::after {
   text-decoration: none;
   background: var(--primary, #000000);
   color: white;
+  margin: 0px 5px;
+  cursor: pointer;
+  display: inline-body;
 }
 [cta-primary]:hover {
   text-decoration: none;
   filter: brightness(0.85);
+}
+
+[cta-secondary] {
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  background: var(--secondary, #ffffff);
+  color: var(--primary, #000000);
+  margin: 0px 5px;
+  cursor: pointer;
+  display: inline-body;
+}
+[cta-secondary]:hover {
+  text-decoration: none;
+  filter: brightness(0.85);
+}
+
+[cta-tersier] {
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  background: var(--tersier, #ffffff);
+  color: var(--secondary, #000000);
+  margin: 0px 5px;
+  cursor: pointer;
+  display: inline-body;
+}
+[cta-tersier]:hover {
+  text-decoration: none;
+  filter: brightness(0.85);
+}
+
+input {
+  border: 0;
+  border-radius: 3px;
+  padding: 10px;
+  width: 100%;
+  font-family: "Inter", "Source Sans Pro", sans-serif;
+  margin-bottom: 5px;
 }

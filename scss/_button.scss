@@ -1,9 +1,40 @@
-[cta-primary] {
+button {
+	border: 0;
+	font-family: 'Inter', 'Source Sans Pro', sans-serif;
+	cursor: pointer;
+}
+
+@mixin cta($background, $color) {
 	padding: $padding $padding * 2;
 	border-radius: 3px;
 	text-decoration: none;
-	background: var(--primary, #000000);
-	color: white;
+	background: #{$background};
+	color: #{$color};
+	margin: 0px 5px;
+	cursor: pointer;
+	display: inline-body;
+}
+
+[cta-primary] {
+	@include cta(var(--primary, #000000), white);
+
+	&:hover {
+		text-decoration: none;
+		filter: brightness(.85);
+	}
+}
+
+[cta-secondary] {
+	@include cta(var(--secondary, #ffffff), var(--primary, #000000));
+
+	&:hover {
+		text-decoration: none;
+		filter: brightness(.85);
+	}
+}
+
+[cta-tersier] {
+	@include cta(var(--tersier, #ffffff), var(--secondary, #000000));
 
 	&:hover {
 		text-decoration: none;
