@@ -13,10 +13,13 @@
 	let content = await fetch(`/pages${location.pathname}.html`);
 
 	// Don't repeat ourselves
+	console.log(content);
 	if (content.status != 404) {
 		// document.write first call would empty the document
 		// allowing us to replace the content with our routed
 		// page
 		document.write(await content.text());
+	} else {
+		$("#pageNotFound").innerText = "Page not found.";
 	}
 })();

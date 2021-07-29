@@ -1,5 +1,7 @@
 default: frontend
 
+PHP_ROUTER=server.php
+
 include ../Makefile
 
 .PHONY: scss
