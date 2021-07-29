@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>404 Oops | FauzetTrade</title>
+		<!-- This file only be used for static pages -->
+		<!-- SEO doesnt make sense here -->
+<!--		<title>404 Oops | FauzetTrade</title>-->
 
-		<meta name="description" content="This page seems to lead you to nowhere">
-		<meta name="keywords" content="Cryptocurrency, Trading, Small Fee">
+<!--		<meta name="description" content="This page seems to lead you to nowhere">-->
+<!--		<meta name="keywords" content="Cryptocurrency, Trading, Small Fee">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-		<meta property="og:title" content="404 Oops | FauzetTrade">
-		<meta property="og:description" content="This page seems to lead you to nowhere">
-		<meta property="og:image" content="https://trade.fauzet.online/imgs/thumbnails/404.png">
+<!--		<meta property="og:title" content="404 Oops | FauzetTrade">-->
+<!--		<meta property="og:description" content="This page seems to lead you to nowhere">-->
+<!--		<meta property="og:image" content="https://trade.fauzet.online/imgs/thumbnails/404.png">-->
 		<meta property="og:type" content="website">
 
 		<link rel="stylesheet" href="/css/index.css">
 		<link rel="icon" type="image/svg+xml" href="/imgs/favicon.svg" size="any">
 
 		<script src="/js/general.js" defer></script>
-		<script src="/js/homepage.js" defer></script>
+		<script src="/js/routing.js"></script> <!-- Do not defer -->
 	</head>
 	<body>
 		<section hero>
@@ -32,11 +34,5 @@
 				Page name not found.
 			</h1>
 		</section>
-		<script>
-			(async () => {
-				let content = await fetch(`/pages${location.pathname}.html`);
-				document.write(await content.text());
-			});
-		</script>
 	</body>
 </html>
