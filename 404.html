@@ -24,8 +24,8 @@
 			<header>
 				<b>FauzetTrade</b>
 				<div>
-					<a href="/pages/legals" white>Legals</a>
-					<a href="/pages/login" cta-tersier>Start Trading</a>
+					<a href="/legals" white>Legals</a>
+					<a href="/login" cta-tersier>Start Trading</a>
 				</div>
 			</header>
 			<h1 id="pageName" center>
@@ -33,7 +33,10 @@
 			</h1>
 		</section>
 		<script>
-			document.getElementById("pageName").innerText = location.href;
+			(async () => {
+				let content = await fetch(`/pages${location.pathname}.html`);
+				document.write(await content.text());
+			});
 		</script>
 	</body>
 </html>
