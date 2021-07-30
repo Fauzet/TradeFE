@@ -17,7 +17,7 @@
 		<link rel="icon" type="image/svg+xml" href="/imgs/favicon.svg" size="any">
 
 		<script src="/js/general.js" defer></script>
-		<script src="/js/homepage.js" defer></script>
+		<script src="/js/mailing.js" defer></script>
 	</head>
 	<body>
 		<section hero>
@@ -29,9 +29,19 @@
 				</div>
 			</header>
 
-			<h1 center>
-				Page Under Construction
-			</h1>
+			<flex style="height: 100%; align-items: center;" center column>
+				<h1 white-color center>Page Under Construction</h1>
+				<flex center>
+					<box ta-left white>
+						<b>Subscribe to our mailing list to get regular updates</b>
+						<p>We would never abuse your email, unsubscribe button are available anytime.</p>
+						<flex>
+							<input type="email" id="subsEmail" placeholder="Your email" no-margin>
+							<button id="subsButton" cta-primary>Subscribe</button>
+						</flex>
+					</box>
+				</flex>
+			</flex>
 		</section>
 	</body>
 </html>

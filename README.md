@@ -19,7 +19,7 @@ Such as:
 2. Read each README.md files on each folders
 3. Start developing from any aspects
 4. Do testing
-```
+```sh
 $ make
 if command -v php; then \
         cd frontend; \
@@ -39,4 +39,4 @@ Do as creative as you are
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## End Notes
-Thank you for visiting
+Thank you for visiting. Feedback and contributions are welcomed!

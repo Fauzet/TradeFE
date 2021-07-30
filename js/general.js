@@ -1,3 +1,12 @@
+/**
+ * This file will be included in every page
+ */
+
+// Backend server, please leave it alone
+// It is a private code
+window.server = "http://localhost:8081";
+
+// document.querySelectorAll shorthand
 window.$ = function(selector) {
 	let els = document.querySelectorAll(selector);
 	if (els.length <= 1) {
@@ -5,8 +14,43 @@ window.$ = function(selector) {
 	} else {
 		return [...els];
 	}
-}
+};
 
+// Alert function overwrite
+(async () => {
+	// Get SweetAlert2
+	eval(await(await fetch("/js/sweetalert2.js")).text());
+
+	let icons = ["error", "success", "info", "question"];
+
+	// Assign SweetAlert2 to window.alert
+	window.alert = function() {
+		let title, desc, icon;
+		let args = [...arguments];
+
+		title = args[0];
+
+		if (icons.includes(title.toLowerCase())) {
+			icon = title.toLowerCase();
+			args = args.slice(1);
+		}
+
+		if (args.length > 1) {
+			title = args[0];
+			args = args.slice(1);
+		}
+
+		desc = args.join('<br/>');
+
+		Swal.fire({
+			icon,
+			title,
+			html: desc
+		});
+	};
+})();
+
+// toFixed now did not round numbers
 Number.prototype.toFixed = function(n) {
 	// Original src: https://helloacm.com/javascripts-tofixed-implementation-without-rounding/
 	// Some code altered.
@@ -23,8 +67,10 @@ Number.prototype.toFixed = function(n) {
 	return b > 0 ? (a + "0".repeat(b)) : a;
 }
 
+// Helper function
 function numLength(num) { return (''+num).length; }
 
+// Self explanatory function
 function abbreviateNum(value) {
 	const suffixes = ['', 'K', 'M', 'B','T'];
 	const suffixNum = Math.floor((numLength(value) - 1) / 3);
@@ -36,11 +82,32 @@ function abbreviateNum(value) {
 	return shortValue + suffixes[suffixNum];
 }
 
-async function sha256(data) {
-	const uint8 = new TextDecoder().encode(data);
-	const buffer = await crypto.subtle.digest('sha-256', uint8);
-	const array = [...(new Uint8Array(buffer))];
-	const hex = array.map(ch => ch.toString(16).padStart(2, '0')).join('');
+// Hash a data with built-in sha256 algorithm from the browser
+function sha256(data) {
+	if (window.jsSHA === undefined) throw 'Please include sha256.js';
 
-	return hex;
+	let obj = new jsSHA("SHA-256", "TEXT");
+	obj.update(data);
+
+	return obj.getHash("HEX");
+}
+
+// Self explanatory, uses ES6 syntax
+String.prototype.splitOnce = function (d) {
+	let [first, ...rest] = this.split(d);
+	return rest.length > 0 ? [first, rest.join(d)] : [first];
+}
+
+// Self explanatory, returns undefined when not found
+function getCookie(name) {
+	let cookies = document.cookie
+	.split('; ')
+	.map(x => {
+		let splitted = x.splitOnce('=');
+		return {name: splitted[0], value: splitted[1]};
+	});
+
+	for (const cookie of cookies) {
+		if (cookie.name == name) return cookie.value;
+	}
 }

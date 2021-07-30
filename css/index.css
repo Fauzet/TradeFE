@@ -91,6 +91,17 @@ flex[wrap] {
   }
 }
 
+box {
+  padding: 20px;
+  border-radius: 5px;
+  background: var(--tersier);
+  margin: 5px;
+}
+box > p {
+  margin-top: 0px;
+  color: var(--secondary);
+}
+
 [width="10%"] {
   width: 10% !important;
 }
@@ -230,9 +241,25 @@ blockquote > p::after {
 }
 
 button {
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  background: white;
+  color: black;
+  margin: 0px 5px;
+  cursor: pointer;
+  display: inline-body;
+  width: max-content;
+  transition: 0.25s;
   border: 0;
   font-family: "Inter", "Source Sans Pro", sans-serif;
-  cursor: pointer;
+}
+button:hover {
+  text-decoration: none;
+  filter: brightness(0.85);
+}
+button:active {
+  scale: 0.95;
 }
 
 [cta-primary] {
@@ -244,10 +271,15 @@ button {
   margin: 0px 5px;
   cursor: pointer;
   display: inline-body;
+  width: max-content;
+  transition: 0.25s;
 }
 [cta-primary]:hover {
   text-decoration: none;
   filter: brightness(0.85);
+}
+[cta-primary]:active {
+  scale: 0.95;
 }
 
 [cta-secondary] {
@@ -259,10 +291,15 @@ button {
   margin: 0px 5px;
   cursor: pointer;
   display: inline-body;
+  width: max-content;
+  transition: 0.25s;
 }
 [cta-secondary]:hover {
   text-decoration: none;
   filter: brightness(0.85);
+}
+[cta-secondary]:active {
+  scale: 0.95;
 }
 
 [cta-tersier] {
@@ -274,10 +311,15 @@ button {
   margin: 0px 5px;
   cursor: pointer;
   display: inline-body;
+  width: max-content;
+  transition: 0.25s;
 }
 [cta-tersier]:hover {
   text-decoration: none;
   filter: brightness(0.85);
+}
+[cta-tersier]:active {
+  scale: 0.95;
 }
 
 input {

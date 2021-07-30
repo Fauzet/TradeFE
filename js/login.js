@@ -15,22 +15,26 @@ $("#loginButton").addEventListener('click', async function() {
 
 	// Authenticate
 	/// Assign session cookie
-	let session = await sha256(`${username}:${password}`);
+	let session = sha256(`${username}:${password}`);
 	document.cookie = `session=${username}@${session};`;
 
 	/// Validate server response
-	let response = await fetch(`${server}/api/login`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: {
-			username: username,
-			password: password
-		}
-	});
-	let data = await response.json();
+	let data;
+	try {
+		let response = await fetch(`${server}/api/login`, {
+			headers: {
+				Authorization: getCookie('session')
+			},
+			method: 'POST',
+			credentials: 'include'
+		});
+		data = await response.json();
+	} catch (e) {
+		return alert("Error", "Network Error", e.toString());
+	}
 
 	if (data.success === false) {
-		return alert("Error", data.message);
+		return alert("Error", "An error occurred", data.message);
 	}
 
 	alert("Success", data.message);

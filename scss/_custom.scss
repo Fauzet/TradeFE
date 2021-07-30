@@ -58,6 +58,19 @@ flex {
 	}
 }
 
+
+box {
+	padding: $padding * 2;
+	border-radius: 5px;
+	background: var(--tersier);
+	margin: 5px;
+
+	> p {
+		margin-top: 0px;
+		color: var(--secondary);
+	}
+}
+
 @for $i from 10 through 100 {
 	@if $i % 10 == 0 {
 		[width="#{$i}%"] {
