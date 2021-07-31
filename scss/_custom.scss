@@ -79,4 +79,10 @@ box {
 	}
 }
 
+[width] {
+	@media screen and (max-width: 660px) {
+		width: 100% !important;
+	}
+}
+
 [no-margin] { margin: 0 !important; }

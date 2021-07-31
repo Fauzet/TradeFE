@@ -142,6 +142,12 @@ box > p {
   width: 100% !important;
 }
 
+@media screen and (max-width: 660px) {
+  [width] {
+    width: 100% !important;
+  }
+}
+
 [no-margin] {
   margin: 0 !important;
 }
@@ -248,7 +254,7 @@ button {
   color: black;
   margin: 0px 5px;
   cursor: pointer;
-  display: inline-body;
+  display: inline-block;
   width: max-content;
   transition: 0.25s;
   border: 0;
@@ -270,7 +276,7 @@ button:active {
   color: white;
   margin: 0px 5px;
   cursor: pointer;
-  display: inline-body;
+  display: inline-block;
   width: max-content;
   transition: 0.25s;
 }
@@ -290,7 +296,7 @@ button:active {
   color: var(--primary, #000000);
   margin: 0px 5px;
   cursor: pointer;
-  display: inline-body;
+  display: inline-block;
   width: max-content;
   transition: 0.25s;
 }
@@ -310,7 +316,7 @@ button:active {
   color: var(--secondary, #000000);
   margin: 0px 5px;
   cursor: pointer;
-  display: inline-body;
+  display: inline-block;
   width: max-content;
   transition: 0.25s;
 }

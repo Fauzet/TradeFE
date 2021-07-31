@@ -4,7 +4,7 @@
 
 // Backend server, please leave it alone
 // It is a private code
-window.server = "http://localhost:8081";
+window.server = "http://backend.trade.fauzet.online:8081";
 
 // document.querySelectorAll shorthand
 window.$ = function(selector) {

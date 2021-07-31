@@ -15,6 +15,7 @@ $("#subsButton").addEventListener('click', async function() {
 	}
 
 	// Submit subscribe
+	let data;
 	try {
 		let response = await fetch(`${server}/api/subscribeEmail`, {
 			method: 'POST',
@@ -25,7 +26,7 @@ $("#subsButton").addEventListener('click', async function() {
 				email: email
 			})
 		});
-		let data = await response.json();
+		data = await response.json();
 	} catch (e) {
 		return alert("Error", "Network Error", e.toString());
 	}

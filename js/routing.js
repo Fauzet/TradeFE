@@ -25,9 +25,11 @@
 
 		for (const script of scripts) {
 			if (script.src) {
-				const res = await fetch(script.src);
-//				eval(await res.text());
-				new Function(await res.text())();
+				try {
+					const res = await fetch(script.src);
+	//				eval(await res.text());
+					new Function(await res.text())();
+				} catch (e) { console.error(e); }
 			} else if (script.innerText) {
 //				eval(script.innerText);
 				new Function(script.innerText)();
