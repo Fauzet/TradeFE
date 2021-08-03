@@ -11,7 +11,10 @@
 		<link rel="stylesheet" href="/css/index.css">
 		<link rel="icon" type="image/svg+xml" href="/imgs/favicon.svg" size="any">
 
-		<script src="/js/general.js" defer></script>
+		<script src="/js/ext/chart.min.js"></script>
+
+		<script src="/js/general.js"></script>
+		<script src="/js/dashboard.js" defer></script>
 		<script src="/js/mailing.js" defer></script>
 	</head>
 	<body>
@@ -35,6 +38,124 @@
 						</flex>
 					</box>
 				</flex>
+			</flex>
+		</section>
+
+		<section>
+			<!-- Personal Overview -->
+			<flex center-horizontal wrap>
+				<!-- Welcome Box -->
+				<box width="20%" flex column jc-sb>
+					<flex>
+						<img
+							width="40px" height="40px"
+							src="https://unpkg.com/ionicons@5.5.2/dist/svg/person-circle.svg"
+							style="margin-right: 5px;"
+							const
+						></img>
+						<span>
+							Welcome back,
+							<b id="username">User</b>!
+							<br/>
+							<b id="balanceInUSD">$0.00</b>
+						</span>
+					</flex>
+					<flex column>
+						<span small>Your referral link</span>
+						<input value="https://trade.fauzet.online/?1234" readonly></input>
+					</flex>
+				</box>
+
+				<!-- Portfolio -->
+				<box width="45%">
+					<b>Portfolio</b>
+					<flex style="margin-top: 10px;" wrap>
+						<div width="25%">
+							<canvas id="portfolioDoughnut"></canvas>
+						</div>
+						<table id="portfolio" width="70%" style="margin-left: 10px; height: 100%;">
+							<tr>
+								<th>Ticker</th>
+								<th>Balance</th>
+							</tr>
+						</table>
+					</flex>
+				</box>
+
+				<!-- Recent Trades -->
+				<box width="30%">
+					<flex width="100%" jc-sb>
+						<b>Recent Trades</b>
+						<a href="/trade" ta-right>New Order</a>
+					</flex>
+					<div width="100%" scroll-x>
+						<table id="recentTrades" width="100%">
+							<tr>
+								<th>Market</th>
+								<th>Price</th>
+								<th>Amount</th>
+								<th>Date</th>
+							</tr>
+						</table>
+					</div>
+				</box>
+			</flex>
+
+			<!-- Market -->
+			<flex center-horizontal wrap>
+				<!-- Best Performing Crypto -->
+				<box width="20%">
+					<b>Best Performers</b>
+					<table id="bestCurrencies" width="100%">
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Change</th>
+						</tr>
+					</table>
+				</box>
+
+				<!-- My Top Crypto -->
+				<box width="45%">
+					<b>My Top Currencies</b>
+					<table id="myTop" width="100%">
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Change</th>
+						</tr>
+					</table>
+				</box>
+
+				<!-- Worst Performing Crypto -->
+				<box width="30%">
+					<b>Worst Performers</b>
+					<table id="worstCurrencies" width="100%">
+						<tr>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Change</th>
+						</tr>
+					</table>
+				</box>
+			</flex>
+
+			<!-- Misc -->
+			<flex center-horizontal wrap>
+				<!-- News -->
+				<box width="20%">
+					<b>News</b>
+				</box>
+
+				<!-- Your Active Orders -->
+				<box width="45%">
+					<b>Active Orders</b>
+				</box>
+
+				<!-- Latest Activity -->
+				<box width="30%">
+					<b>Latest Activity</b>
+				</box>
 			</flex>
 		</section>
 	</body>

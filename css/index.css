@@ -6,6 +6,8 @@
   --secondary: #707070;
   --tersier: #eeeeee;
   --shadow: #424242;
+  --func-no: #ff0000;
+  --func-yes: #00ff00;
 }
 
 * {
@@ -34,27 +36,35 @@ a:hover {
   text-decoration: underline;
 }
 
-flex {
+[scroll-x] {
+  overflow-x: auto;
+}
+
+[scroll-y] {
+  overflow-y: auto;
+}
+
+flex, [flex] {
   display: flex;
 }
-flex[column] {
+flex[column], [flex][column] {
   flex-direction: column;
 }
-flex[same-width] > * {
+flex[same-width] > *, [flex][same-width] > * {
   flex: 1;
 }
-flex[center] {
+flex[center], [flex][center] {
   text-align: center;
   width: 100%;
   justify-content: center;
 }
-flex[cards] {
+flex[cards], [flex][cards] {
   width: 50%;
   margin: 0px auto;
   align-items: center;
   justify-content: center;
 }
-flex[cards] > div {
+flex[cards] > div, [flex][cards] > div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,27 +76,36 @@ flex[cards] > div {
   border: 1px solid var(--secondary);
   box-shadow: 0px 2px 2px var(--shadow, #000000);
 }
-flex[cards] > div[primary] {
+flex[cards] > div[primary], [flex][cards] > div[primary] {
   background: var(--primary);
   color: var(--tersier);
 }
-flex[cards] > div > * {
+flex[cards] > div > *, [flex][cards] > div > * {
   padding: 10px 0;
 }
 @media screen and (max-width: 660px) {
-  flex[cards] {
+  flex[cards], [flex][cards] {
     width: 100% !important;
     flex-wrap: wrap;
   }
-  flex[cards] > div {
+  flex[cards] > div, [flex][cards] > div {
     flex: none;
   }
 }
-flex[wrap] {
+flex[wrap], [flex][wrap] {
   flex-wrap: wrap;
 }
+flex[center-horizontal], [flex][center-horizontal] {
+  justify-content: center;
+}
+flex[center-vertical], [flex][center-vertical] {
+  align-items: center;
+}
+flex[jc-sb], [flex][jc-sb] {
+  justify-content: space-between;
+}
 @media screen and (max-width: 660px) {
-  flex > * {
+  flex > :not([width]), [flex] > :not([width]) {
     width: 100%;
   }
 }
@@ -102,40 +121,83 @@ box > p {
   color: var(--secondary);
 }
 
+table th {
+  text-align: left;
+}
+table[center] td {
+  text-align: center;
+}
+
 [width="10%"] {
   width: 10% !important;
+}
+
+[width="15%"] {
+  width: 15% !important;
 }
 
 [width="20%"] {
   width: 20% !important;
 }
 
+[width="25%"] {
+  width: 25% !important;
+}
+
 [width="30%"] {
   width: 30% !important;
+}
+
+[width="35%"] {
+  width: 35% !important;
 }
 
 [width="40%"] {
   width: 40% !important;
 }
 
+[width="45%"] {
+  width: 45% !important;
+}
+
 [width="50%"] {
   width: 50% !important;
+}
+
+[width="55%"] {
+  width: 55% !important;
 }
 
 [width="60%"] {
   width: 60% !important;
 }
 
+[width="65%"] {
+  width: 65% !important;
+}
+
 [width="70%"] {
   width: 70% !important;
+}
+
+[width="75%"] {
+  width: 75% !important;
 }
 
 [width="80%"] {
   width: 80% !important;
 }
 
+[width="85%"] {
+  width: 85% !important;
+}
+
 [width="90%"] {
   width: 90% !important;
+}
+
+[width="95%"] {
+  width: 95% !important;
 }
 
 [width="100%"] {
@@ -143,9 +205,12 @@ box > p {
 }
 
 @media screen and (max-width: 660px) {
-  [width] {
+  [width]:not([const]) {
     width: 100% !important;
   }
+}
+[width][width=mc] {
+  width: max-content !important;
 }
 
 [no-margin] {
@@ -238,12 +303,24 @@ blockquote > p::after {
   color: white !important;
 }
 
+[func-yes] {
+  color: var(--func-yes, #00ff00) !important;
+}
+
+[func-no] {
+  color: var(--func-no, #ff0000) !important;
+}
+
 [ta-right] {
   text-align: right !important;
 }
 
 [ta-left] {
   text-align: left !important;
+}
+
+[small] {
+  font-size: 80%;
 }
 
 button {

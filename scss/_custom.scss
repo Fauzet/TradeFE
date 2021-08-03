@@ -1,4 +1,4 @@
-flex {
+flex, [flex] {
 	display: flex;
 
 	&[column] { flex-direction: column; }
@@ -51,13 +51,24 @@ flex {
 		flex-wrap: wrap;
 	}
 
+	&[center-horizontal] {
+		justify-content: center;
+	}
+
+	&[center-vertical] {
+		align-items: center;
+	}
+
+	&[jc-sb] {
+		justify-content: space-between;
+	}
+
 	@media screen and (max-width: 660px) {
-	        > * {
-	                width: 100%;
-	        }
+		> :not([width]) {
+	        	width: 100%;
+		}
 	}
 }
-
 
 box {
 	padding: $padding * 2;
@@ -71,8 +82,20 @@ box {
 	}
 }
 
+table {
+	th {
+		text-align: left;
+	}
+
+	&[center] {
+		td {
+			text-align: center
+		}
+	}
+}
+
 @for $i from 10 through 100 {
-	@if $i % 10 == 0 {
+	@if $i % 5 == 0 {
 		[width="#{$i}%"] {
 			width: percentage($i / 100) !important;
 		}
@@ -80,8 +103,14 @@ box {
 }
 
 [width] {
-	@media screen and (max-width: 660px) {
-		width: 100% !important;
+	&:not([const]) {
+		@media screen and (max-width: 660px) {
+			width: 100% !important;
+		}
+	}
+
+	&[width="mc"] {
+		width: max-content !important;
 	}
 }
 

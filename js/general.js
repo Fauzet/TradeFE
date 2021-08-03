@@ -98,6 +98,14 @@ String.prototype.splitOnce = function (d) {
 	return rest.length > 0 ? [first, rest.join(d)] : [first];
 }
 
+String.prototype.rtrim = function (d='') {
+	return this.replace(new RegExp(`${d}+$`), '');
+}
+
+String.prototype.ltrim = function (d='') {
+	return this.replace(new RegExp(`^${d}+`), '');
+}
+
 // Self explanatory, returns undefined when not found
 function getCookie(name) {
 	let cookies = document.cookie

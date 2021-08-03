@@ -27,10 +27,22 @@ blockquote {
 	color: white !important;
 }
 
+[func-yes] {
+	color: var(--func-yes, #00ff00) !important;
+}
+
+[func-no] {
+	color: var(--func-no, #ff0000) !important;
+}
+
 [ta-right] {
 	text-align: right !important;
 }
 
 [ta-left] {
 	text-align: left !important;
+}
+
+[small] {
+	font-size: 80%;
 }

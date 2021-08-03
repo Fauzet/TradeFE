@@ -20,18 +20,15 @@
 		document.write(await content.text());
 
 		// Execute each script tag
-		let scripts = $("script");
-		scripts = Array.isArray(scripts) ? scripts : [scripts];
+		let scripts = document.scripts;
 
 		for (const script of scripts) {
 			if (script.src) {
 				try {
 					const res = await fetch(script.src);
-	//				eval(await res.text());
 					new Function(await res.text())();
 				} catch (e) { console.error(e); }
 			} else if (script.innerText) {
-//				eval(script.innerText);
 				new Function(script.innerText)();
 			}
 		}
